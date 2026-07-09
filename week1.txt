@@ -1,0 +1,7 @@
+Proof Statement — Week 1, General AI Fluency Track
+
+Brief:
+I implement real algorithmic logic like Dijkstra's shortest-path inside complete, working desktop applications wired to a live database, not just CRUD screens: in my Smart Emergency Response System, I calculated live shortest-path routes between emergencies and stations and rendered them on Google Maps inside a C# WinForms app with a MySQL backend, and I've repeated that same pattern solo across three more projects, an Online Food Order System, a Smart School Management System, and a Faculty & Workload Management System. I want Adil Sikandar, Talent Acquisition at Systems Limited, to see this pattern of proof and reply to start a conversation about a part-time contract role on the C#/.NET team.
+
+Deliverable: 
+My CV and LinkedIn can list "C# WinForms, MySQL, DSA" as skills, but they can't show that I've solved the same hard problem real algorithmic logic wired end-to-end to a database four separate times, alone, on purpose and a proof statement is the only place that pattern becomes visible instead of implied.
