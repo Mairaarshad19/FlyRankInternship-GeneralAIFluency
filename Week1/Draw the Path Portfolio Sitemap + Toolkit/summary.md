@@ -1,0 +1,1 @@
+"Sketched a 3-section single-page sitemap, pressure-tested it in my AI workspace, and added an Availability section based on feedback that the CTA lacked setup before the ask."

@@ -1,0 +1,16 @@
+This is the sitemap i sketched for a single-page portfolio site:
+
+1. Hero/Intro — compressed claim + scroll cue toward proof
+2. Proof + Evidence — full claim, then 4 project cards (name, problem solved, 
+   tech stack, one standout technical detail, GitHub link)
+3. Contact/CTA — "Interested in a part-time contract role? Reply here to set 
+   up a short call."
+
+After pressure testing the sitemap from Claude which is choosed as my main builder:
+ 
+Updated sitemap:
+
+Hero/Intro — compressed claim
+Proof + Evidence — claim + 4 project cards
+Availability (new) — one line: "Currently open to part-time contract work, X hrs/week, remote" — this is the missing setup before the ask
+Contact/CTA — working mechanism (mailto or form), same specific ask
