@@ -47,15 +47,6 @@ Everything in this repo is submitted as-is: the reasoning included, not just the
 
 ---
 
-## ✅ Weekly Log
-
-| Week | Deliverable | Status |
-|---|---|---|
-| Week 1 | Proof Statement (Claim + Person + Action) | ✅ Complete |
-| Week 2 | — | 🔜 In Progress |
-
----
-
 <div align="center">
 
 *Maintained by [Maira Arshad](https://github.com/Mairaarshad19) · [LinkedIn](https://www.linkedin.com/in/mairaarshad)*
