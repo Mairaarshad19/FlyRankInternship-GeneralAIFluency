@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maira Arshad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #14161A;
+    --near-white: #FAFAF8;
+    --slate: #1E2A3A;
+    --teal: #2F6E62;
+    --border: #E2E1DC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--near-white);
+    color: var(--near-black);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .wordmark {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--slate);
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  /* ---------- KIT HEADER ---------- */
+  .kit-header {
+    margin-bottom: 64px;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .kit-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .kit-header p {
+    color: #555;
+    max-width: 480px;
+  }
+
+  section {
+    margin-bottom: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  section:first-of-type { border-top: none; padding-top: 0; }
+
+  section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  section h2 .num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 500;
+  }
+
+  /* ---------- TYPE ---------- */
+  .type-sample {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .type-sample:last-child { border-bottom: none; }
+  .type-sample .label {
+    font-size: 0.8rem;
+    color: #888;
+    min-width: 140px;
+  }
+  .type-sample .sample-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  .type-sample .sample-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--near-black);
+    max-width: 400px;
+  }
+
+  /* ---------- PALETTE ---------- */
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .swatch {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .swatch .fill {
+    height: 90px;
+  }
+  .swatch .info {
+    padding: 10px 12px;
+    background: white;
+  }
+  .swatch .name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--near-black);
+  }
+  .swatch .hex {
+    font-size: 0.75rem;
+    color: #888;
+    font-family: monospace;
+  }
+
+  /* ---------- LOGO ---------- */
+  .logo-block {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .logo-tile {
+    flex: 1;
+    min-width: 220px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .logo-tile.dark {
+    background: var(--slate);
+  }
+  .logo-tile.dark .wordmark { color: var(--near-white); }
+  .wordmark {
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .logo-tile .tag {
+    margin-top: 10px;
+    font-size: 0.72rem;
+    color: #999;
+  }
+  .logo-tile.dark .tag { color: #B7C2CC; }
+
+  /* ---------- STYLE NOTE ---------- */
+  .style-note {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    border-radius: 4px;
+    padding: 24px 28px;
+  }
+  .style-note p {
+    font-size: 0.95rem;
+    color: var(--near-black);
+  }
+  .style-note p + p { margin-top: 10px; }
+  .style-note .mood {
+    font-style: italic;
+    color: var(--slate);
+  }
+
+  /* ---------- APPLIED EXAMPLE ---------- */
+  .applied {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .applied-hero {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 40px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .headshot-placeholder {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: repeating-linear-gradient(45deg, #EDECE7, #EDECE7 8px, #E2E1DC 8px, #E2E1DC 16px);
+    border: 1px dashed #B9B7B0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: #888;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .applied-hero h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .applied-hero p {
+    color: #555;
+    font-size: 0.92rem;
+    max-width: 400px;
+  }
+  .applied-hero .cta {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--teal);
+    color: var(--near-white);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 9px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .applied-proof {
+    padding: 32px;
+  }
+  .applied-proof h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .screenshot-placeholder {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: top;
+    background: repeating-linear-gradient(45deg, #EDECE7, #EDECE7 8px, #E2E1DC 8px, #E2E1DC 16px);
+    border-bottom: 1px dashed #B9B7B0;
+    font-size: 0.68rem;
+    color: #888;
+    text-align: center;
+    padding: 8px;
+  }
+  .project-card .card-body {
+    padding: 14px 16px;
+  }
+  .project-card .card-body .title {
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+  }
+  .project-card .card-body .desc {
+    font-size: 0.78rem;
+    color: #777;
+  }
+
+  @media (max-width: 620px) {
+    .palette { grid-template-columns: repeat(2, 1fr); }
+    .applied-hero { flex-direction: column; align-items: flex-start; text-align: left; }
+    .project-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="kit-header">
+    <div class="eyebrow">Identity Kit — Week 3</div>
+    <h1>Maira — Portfolio Identity Kit</h1>
+    <p>Type, palette, logo, and mood, decided once so every page and case study inherits them.</p>
+  </div>
+
+  <!-- TYPE -->
+  <section>
+    <h2><span class="num">01</span> Type</h2>
+    <div class="type-sample">
+      <div class="label">Space Grotesk<br>Headings</div>
+      <div class="sample-heading">Built it. Shipped it.</div>
+    </div>
+    <div class="type-sample">
+      <div class="label">Inter<br>Body</div>
+      <div class="sample-body">Available for part-time contract work. Straightforward process, clear scope, work you can verify.</div>
+    </div>
+  </section>
+
+  <!-- PALETTE -->
+  <section>
+    <h2><span class="num">02</span> Palette</h2>
+    <div class="palette">
+      <div class="swatch">
+        <div class="fill" style="background:#14161A;"></div>
+        <div class="info"><div class="name">Near-black</div><div class="hex">#14161A</div></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#FAFAF8; border-bottom:1px solid #E2E1DC;"></div>
+        <div class="info"><div class="name">Near-white</div><div class="hex">#FAFAF8</div></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#1E2A3A;"></div>
+        <div class="info"><div class="name">Slate navy</div><div class="hex">#1E2A3A</div></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#2F6E62;"></div>
+        <div class="info"><div class="name">Teal (accent / CTA only)</div><div class="hex">#2F6E62</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO -->
+  <section>
+    <h2><span class="num">03</span> Logo / Favicon</h2>
+    <div class="logo-block">
+      <div class="logo-tile">
+        <div class="wordmark">Maira</div>
+        <div class="tag">On near-white — default usage</div>
+      </div>
+      <div class="logo-tile dark">
+        <div class="wordmark">Maira</div>
+        <div class="tag">On slate — footer / dark contexts</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STYLE NOTE -->
+  <section>
+    <h2><span class="num">04</span> Style Note</h2>
+    <div class="style-note">
+      <p>Space Grotesk (headings) + Inter (body). Slate #1E2A3A, near-black #14161A, near-white #FAFAF8, teal accent #2F6E62 used only on the contact CTA.</p>
+      <p class="mood">Mood: quietly competent — a site that looks like it was built by someone who ships, not someone who's still deciding what they are.</p>
+    </div>
+  </section>
+
+  <!-- APPLIED EXAMPLE -->
+  <section>
+
+
+    <div class="applied">
+      <div class="applied-hero">
+        <img src="Maira's Picture.jpeg" alt="Maira" class="headshot-placeholder">
+        <div>
+          <h3>Maira</h3>
+          <p>Part-time contract work in Desktop App Application. I ship, and I can show you what I've shipped.</p>
+          <a href="#" class="cta">Get in touch</a>
+        </div>
+      </div>
+      <div class="applied-proof">
+        <h4>Proof</h4>
+        <div class="project-grid">
+          <div class="project-card">
+            <img src="food.jpeg" alt="Project: Food" class="screenshot-placeholder">
+            <div class="card-body">
+              <div class="title">YumCart - Online food order system</div>
+              <div class="desc">Developed a full-stack food ordering and payment desktop app (C#, MySQL, ADO.NET) with layered architecture, handling the complete order lifecycle from cart management to payment status tracking and admin CRUD control.</div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="emergency.jpeg" alt="Project: Emergency" class="screenshot-placeholder">
+            <div class="card-body">
+              <div class="title">Smart Emergency Response System</div>
+              <div class="desc">Built a full-stack desktop dispatch platform (C#, MySQL, Google Maps API) that used Dijkstra's algorithm and custom data structures (Priority Queue, Graph, AVL Tree) to route ambulances by real-time severity and coverage analysis.</div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="faculty.jpeg" alt="Project: Faculty" class="screenshot-placeholder">
+            <div class="card-body">
+              <div class="title">Faculty and Workload Management System</div>
+              <div class="desc">Designed a normalized relational database (C#, MySQL, Windows Forms) to manage faculty records, course assignments, and workload distribution through a UI-integrated admin dashboard.</div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="student.jpeg" alt="Project: Student" class="screenshot-placeholder">
+            <div class="card-body">
+              <div class="title">Student Management System</div>
+              <div class="desc">Built a desktop student management application (C++, MySQL, Windows Forms) with integrated database storage and retrieval for student records.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
