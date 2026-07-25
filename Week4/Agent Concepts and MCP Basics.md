@@ -37,7 +37,11 @@ I connected the Google Drive connector to Claude and ran three tasks that plain 
 
 **Task 2:** Asked it to list everything modified in my Drive in the last month. It returned real files with real modification dates, including an internship offer letter someone shared with me and a FlyRank kickoff deck, information that only exists in my actual Drive, not anywhere a model could know on its own.
 
+![Task 2 screenshot](test2.png)
+
 **Task 3:** Asked it to find anything mentioning FlyRank across my Drive. It searched and returned four specific matching files by name, with the reasoning visible, "resolved to retrieve additional pages for comprehensive results," meaning it was actually paging through real search results, not producing a guess.
+
+![Task 3 screenshot](test3.png)
 
 All three responses showed visible tool use, phrases like "loaded tools, used Google Drive integration," not just a normal chat answer. That's the actual proof this wasn't chat pretending to know something, it was really reaching into an external system.
 
