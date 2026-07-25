@@ -39,13 +39,19 @@ Each step only sees what the step before it produced, so critique is reviewing d
 
 Draft mentioned real evidence, Dijkstra's algorithm, MySQL, and the Microsoft Inner Circle partnership. Critique caught that "balancing this alongside my degree" read as a soft excuse and could invite the exact question I did not want asked. Also flagged "I'd like to explore" as too tentative for my voice. Final version cut the excuse and used a more direct verb.
 
+![Task 1 screenshot](test1.png)
+
 ### Run 2: Systems Limited, general internship version (before I had Adil's name)
 
 Draft was generic, addressed to no one specific. Critique caught filler like "I'd welcome the chance" and a passive ask, "could you let me know." Also flagged that mixing desktop C# work into a backend web pitch was confusing without explanation. Final version was tighter but this run is what pushed me to go find Adil's actual name and title for Run 1.
 
+![Task 2 screenshot](test2.png)
+
 ### Run 3: PureLogics, AI/ML internship
 
 Critique caught something bigger than phrasing here, that my actual evidence, evaluation rubrics and prompt engineering, proves applied AI skill, not ML engineering skill. If PureLogics is hiring for model building specifically, my draft was quietly overselling fit. Final version narrowed the pitch to "applied AI work" instead of a vague "AI/ML" claim.
+
+![Task 3 screenshot](test3.png)
 
 ### Run 4: Devsinc, general software engineer role
 
