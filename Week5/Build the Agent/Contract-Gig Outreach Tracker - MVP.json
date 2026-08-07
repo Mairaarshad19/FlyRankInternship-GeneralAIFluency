@@ -1,0 +1,164 @@
+{
+  "name": "Contract-Gig Outreach Tracker - MVP",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1b3c98ad-5187-472c-9c5b-99a6b7055aef",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "filters": {
+          "q": "in:inbox (application OR interview OR \"thank you for applying\") newer_than:14d"
+        }
+      },
+      "id": "602f6a49-31a1-4651-9dc2-00a486362468",
+      "name": "Get One Application Thread",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "webhookId": "675d2c1f-3433-488f-95b0-274037cb8c71",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YUS6NEaAcS0eehOj",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer PLACEHOLDER"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  model: \"inclusionai/ling-3.0-tiny:free\",\n  messages: [\n    {\n      role: \"user\",\n      content: \"You are drafting a short follow-up email for a contract job application. Voice: direct, honest, no fluff, matter-of-fact. Never inflate or use corporate filler.\\n\\nSubject: \" + $('Get One Application Thread').item.json.subject + \"\\n\\nThread snippet: \" + $('Get One Application Thread').item.json.snippet + \"\\n\\nWrite a 3-4 sentence follow-up email checking in on the application status. Return ONLY the email body text, nothing else.\"\n    }\n  ]\n}) }}",
+        "options": {}
+      },
+      "id": "9992748b-2ca3-47b8-8d4d-b51c24a9d7c7",
+      "name": "Claude - Draft Follow-Up",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        448,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst draftText = items[0].json.choices[0].message.content;\nconst threadId = $('Get One Application Thread').first().json.threadId;\nreturn [{ json: { draftText, threadId } }];"
+      },
+      "id": "7e872bf8-b705-4781-9c77-1a580db3e998",
+      "name": "Extract Draft Text",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "subject": "==Re: {{ $('Get One Application Thread').item.json.subject }}",
+        "message": "={{ $json.draftText }}",
+        "options": {}
+      },
+      "id": "95d91f4a-3128-484a-a532-2d41dc5e3756",
+      "name": "Save Draft in Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [
+        880,
+        0
+      ],
+      "webhookId": "52a36558-0bd3-445d-9ce1-c1e0feca94b7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YUS6NEaAcS0eehOj",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get One Application Thread",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get One Application Thread": {
+      "main": [
+        [
+          {
+            "node": "Claude - Draft Follow-Up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude - Draft Follow-Up": {
+      "main": [
+        [
+          {
+            "node": "Extract Draft Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Draft Text": {
+      "main": [
+        [
+          {
+            "node": "Save Draft in Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "fc2a5cbd-d424-4561-a111-37552290bc47",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "783c02d01fa7d44fe2754441fee42f40d629878d65ee098ade64e38f0a60d72f"
+  },
+  "nodeGroups": [],
+  "id": "HeGbBKyoHbRebH0Q",
+  "tags": []
+}
