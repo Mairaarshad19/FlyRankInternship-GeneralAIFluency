@@ -1,0 +1,1 @@
+"The one skill you are trying to convey is clear, but you should add subject relevant to your skill like Design and Analysis of Algorithms." Also flagged the "Built page by page, still a bit rough at the edges" line for removal.
