@@ -1,8 +1,8 @@
-Reviewer feedback: Understood the service correctly (one offering, four proofs: working desktop apps solving real problems with real algorithms like Dijkstra's + live databases). Two nice-to-haves: add relevant coursework (DAA), make some app UIs more eye-catching. One must-fix: the "built page by page, still a bit rough by the edges" closing line read as self-undermining and confused her on whether to trust the work.
+Reviewer feedback: Correctly identified the service as one offering with four proofs — desktop apps that solve real problems using real algorithms (Dijkstra's) wired to live databases. Suggested adding relevant coursework (Design and Analysis of Algorithms) and making some app UIs more eye-catching. Flagged that the closing line "built page by page, still a bit rough by the edges" was confusing and undercut confidence in the work.
 
 Sort:
 
-Must-fix: the rough-edges line
-Nice-to-have: DAA/coursework line, UI polish on select apps
+Must-fix: closing line reading as self-undermining
+Nice-to-have: DAA/coursework callout, UI polish on select apps
 
-Fix: line removed from the live site.
+Evidence of fix: Live at mairaarshad.netlify.app — the line is removed; the About section now closes with a direct, non-hedging statement about imperfect-but-real delivery.
