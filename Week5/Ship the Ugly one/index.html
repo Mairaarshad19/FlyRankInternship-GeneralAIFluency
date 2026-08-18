@@ -399,20 +399,85 @@
     </div>
   </div>
 </section>
-
 <section class="contact" id="contact">
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 480px;
+    margin-top: 2rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    color: #1A1A1A;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #0969DA;
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .contact-form button {
+    align-self: flex-start;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #E85D04;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .contact-form button:hover {
+    opacity: 0.9;
+  }
+
+  .contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+</style>
+
   <div class="section-head">
     <span class="eyebrow">Contact</span>
     <h2>Let's talk about a part-time contract role</h2>
     <p>C#/.NET, desktop applications, algorithm-backed systems. If that's what your team needs, I'm available.</p>
   </div>
+
   <div class="contact-box">
     <div>
       <h3>mairaarshad019@gmail.com</h3>
-      <p>Email me to set up a short call.</p>
+      <p>Email me directly, or send a message using the form below.</p>
     </div>
     <a class="btn btn-primary" href="mailto:mairaarshad019@gmail.com?subject=Part-time%20contract%20role">Email me &rarr;</a>
   </div>
+
+  <form class="contact-form" action="https://formspree.io/f/mvkpvkao" method="POST">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <input type="hidden" name="subject" value="Portfolio contact form submission">
+    <textarea name="message" placeholder="Interested in a part-time contract role? Let me know here." rows="4" required></textarea>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+
 </section>
 
 <footer>
