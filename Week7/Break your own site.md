@@ -1,0 +1,5 @@
+Issues Found & Fixes Applied
+Area	Expected Issue	Fix Applied
+Contact Form — Validation	Empty or invalid form fields could potentially be submitted without clear validation feedback.	Added/verified required validation for Name, Email, and Message, and used type="email" for proper email-format validation.
+Contact Form — Rapid Submission	Clicking Send Message multiple times quickly could potentially trigger duplicate submissions.	Added submission protection by disabling the submit button while the form is being submitted, preventing accidental duplicate requests. The existing CSS already supports a disabled button state.
+SEO / Metadata	The page had a meaningful title but lacked a basic meta description, reducing the quality of search-engine/social previews.	Added basic SEO metadata, including a descriptive meta description and relevant sharing metadata. The original HTML already contained a page title and viewport configuration.
