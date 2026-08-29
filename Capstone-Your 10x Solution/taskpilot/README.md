@@ -45,13 +45,13 @@ and emails are just logged to the console instead of sent.
 |---|---|---|---|
 | POST | `/auth/register` | – | Create an account |
 | POST | `/auth/login` | – | Get a JWT |
-| GET | `/tasks` | ✅ | List your tasks (cached) |
-| POST | `/tasks` | ✅ | Create a task |
-| PATCH | `/tasks/:id` | ✅ | Update a task |
-| DELETE | `/tasks/:id` | ✅ | Delete a task |
-| GET | `/tasks/prioritize` | ✅ | AI-ranked "what to do first" |
-| GET | `/reports/weekly` | ✅ | Download a PDF report |
-| POST | `/reports/weekly/email` | ✅ | Email the PDF report |
+| GET | `/tasks` | List your tasks (cached) |
+| POST | `/tasks` | Create a task |
+| PATCH | `/tasks/:id` | Update a task |
+| DELETE | `/tasks/:id` | Delete a task |
+| GET | `/tasks/prioritize` | AI-ranked "what to do first" |
+| GET | `/reports/weekly` | Download a PDF report |
+| POST | `/reports/weekly/email` | Email the PDF report |
 
 All authenticated routes need `Authorization: Bearer <token>`.
 
