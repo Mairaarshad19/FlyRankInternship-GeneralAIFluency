@@ -1,0 +1,7 @@
+node_modules/
+.env
+taskpilot.db
+taskpilot.db-shm
+taskpilot.db-wal
+reports/
+*.log
