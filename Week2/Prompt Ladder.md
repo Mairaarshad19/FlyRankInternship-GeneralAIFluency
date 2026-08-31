@@ -1,231 +1,334 @@
-Week 2 — Prompt Ladder
+Absolutely — here is the cleaned-up, properly structured Markdown version with headings, tables, bullets, and code formatting preserved so you can save it directly as a `.md` file.
 
-Track: General AI Fluency, FlyRank Internship
+# Week 2 — Prompt Ladder
 
-Baseline (Version 0)
+## Track: General AI Fluency Program — FlyRank Internship
 
-Prompt
+---
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity to build this."
+# Baseline (Version 0)
 
-Info given
+## Prompt
 
-Family freight forwarding business (Allied Shipping Agency), Next.js 14, TypeScript, Tailwind CSS, Framer Motion, navy/gold/beige palette, Inter font.
+> Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity to build this.
 
-Output
+## Info Given
 
-"Build a modern, professional website for Allied Shipping Agency, a freight forwarding company. Use Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Include a navy, gold, and warm beige color palette with the Inter font. The site should have a homepage, services page, about page, and contact page. Make it responsive, modern, and visually appealing with smooth animations. Include a hero section, services showcase, testimonials, and a contact form. Make sure it reflects trust and professionalism for a logistics company."
+1. Family freight forwarding business (**Allied Shipping Agency**)
+2. Next.js 14
+3. TypeScript
+4. Tailwind CSS
+5. Framer Motion
+6. Navy/gold/beige palette
+7. Inter font
 
-Notes
+## Output
 
-What changed: nothing yet, this is the starting point.
+> Build a modern, professional website for Allied Shipping Agency, a freight forwarding company. Use Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Include a navy, gold, and warm beige color palette with the Inter font. The site should have a homepage, services page, about page, and contact page. Make it responsive, modern, and visually appealing with smooth animations. Include a hero section, services showcase, testimonials, and a contact form. Make sure it reflects trust and professionalism for a logistics company.
 
-What improved: nothing, it's the baseline.
+## Notes
 
-What failed: everything got dumped into one output, pages, sections, animations, colors, tone, all mixed together with zero order. No wonder this never actually got built. Whoever picks this up (even AI) doesn't know where to start.
+No additional notes.
 
-What I'd try next: break this into small, ordered steps instead of throwing everything at it at once.
+## Observation
 
-Version 1 — Layer: Output Format
+### What Changed
 
-Prompt
+Nothing yet. This is the starting point.
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps (e.g., Step 1: set up project structure, Step 2: build homepage hero, Step 3: build services section, etc.) rather than one single paragraph."
+### What Improved
 
-Output
+Nothing, it's the baseline.
 
-"Build the Allied Shipping Agency website in these steps:
+### What Failed
 
-Step 1: Set up a Next.js 14 project with TypeScript and Tailwind CSS. Configure the navy/gold/beige color palette and Inter font in the Tailwind config.
+Everything got dumped into one output: pages, sections, animations, colors, tone, all mixed together with zero order.
 
-Step 2: Build the homepage hero section with company name/tagline, a services overview, and a call-to-action button.
+No wonder this never actually got built. Whoever picks this up — even an AI — doesn't know where to start.
 
-Step 3: Build the Services page listing freight forwarding services offered.
+### What I'd Try Next
 
-Step 4: Build the About page with company background.
+Break this into small, ordered steps instead of throwing everything at it at once.
 
-Step 5: Build the Contact page with a contact form.
+---
 
-Step 6: Add Framer Motion animations to section transitions and the hero.
+# Version 1 — Layer: Output Format
 
-Step 7: Make the entire site responsive across mobile, tablet, and desktop."
+## Prompt
 
-Notes
+> Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps (e.g., Step 1: set up project structure, Step 2: build homepage hero, Step 3: build services section, etc.) rather than one single paragraph.
 
-What changed: I told it to give me numbered steps instead of one big paragraph.
+## Output
 
-What improved: now there's actually an order — Step 1, then Step 2, instead of everything at once. This is the exact thing that was missing before, and it's why the site never got built.
+| Step  | Build Step                                                                                                                                       |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1** | Set up a Next.js 14 project with TypeScript and Tailwind CSS. Configure the navy/gold/beige color palette and Inter font in the Tailwind config. |
+| **2** | Build the homepage hero section with company name/tagline, a services overview, and a call-to-action button.                                     |
+| **3** | Build the Services page listing freight forwarding services offered.                                                                             |
+| **4** | Build the About page with company background.                                                                                                    |
+| **5** | Build the Contact page with a contact form.                                                                                                      |
+| **6** | Add Framer Motion animations to section transitions and the hero.                                                                                |
+| **7** | Make the entire site responsive across mobile, tablet, and desktop.                                                                              |
 
-What failed: the steps are still vague. "Build the homepage" doesn't say what goes on it or what "done" even looks like.
+## Notes
 
-What I'd try next: give it real info about the actual business instead of placeholder text.
+No additional notes.
 
-Version 2 — Layer: Real Context
+## Observation
 
-Prompt
+### What Changed
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include this real business context so the output is specific, not generic: Allied Shipping Agency is a freight forwarding company based in Lahore,"
+I told it to give me numbered steps instead of one big paragraph.
 
-Output
+### What Improved
 
-"Build the Allied Shipping Agency website in these steps:
+Now there's actually an order — Step 1, then Step 2, instead of everything at once.
 
-Step 1: Set up Next.js 14 with TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.
+This is the exact thing that was missing before, and it's why the site never got built.
 
-Step 2: Build the homepage hero 'Allied Shipping Agency, your trusted freight forwarding partner in Lahore, Pakistan.'
+### What Failed
 
-Step 3: Build a Services page listing freight forwarding services offered.
+The steps are still vague.
 
-Step 4: Build an About page mentioning the company's location in Shadman, Lahore, and its role as a freight forwarder.
+"Build the homepage" doesn't say what goes on it or what "done" even looks like.
 
-Step 5: Build a Contact page with the company address and a contact form.
+### What I'd Try Next
 
-Step 6: Add Framer Motion animations.
+Give it real information about the actual business instead of placeholder text.
 
-Step 7: Make it responsive."
+---
 
-Notes
+# Version 2 — Layer: Real Context
 
-What changed: added the real business info I had — location and category.
+## Prompt
 
-What improved: the hero line and contact address are now real, not placeholder text. Someone could copy-paste Step 5 straight into the site.
+> Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include this real business context so the output is specific, not generic: Allied Shipping Agency is a freight forwarding company based in Lahore.
 
-What failed: Step 3 (the services list) is still generic because I hadn't given it my actual services yet, so it just guessed. This one only half-worked, it fixed what I gave it real info for, and left the rest exactly as vague as before.
+## Output
 
-What I'd try next: actually give it the real services, or tell it to flag when it's guessing instead of pretending it knows.
+| Step  | Build Step                                                                                                          |
+| ----- | ------------------------------------------------------------------------------------------------------------------- |
+| **1** | Set up Next.js 14 with TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.                               |
+| **2** | Build the homepage hero: **"Allied Shipping Agency, your trusted freight forwarding partner in Lahore, Pakistan."** |
+| **3** | Build a Services page listing freight forwarding services offered.                                                  |
+| **4** | Build an About page mentioning the company's location in Shadman, Lahore, and its role as a freight forwarder.      |
+| **5** | Build a Contact page with the company address and a contact form.                                                   |
+| **6** | Add Framer Motion animations.                                                                                       |
+| **7** | Make it responsive.                                                                                                 |
 
-Version 3 — Layer: Defined Audience
+## Notes
 
-Prompt
+No additional notes.
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency is a freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for this specific audience: customers who need to book freight shipments — not investors, not job seekers, not general visitors."
+## Observation
 
-Output
+### What Changed
 
-"Build the Allied Shipping Agency website in these steps:
+Added the real business information I had — location and category.
 
-Step 1: Set up Next.js 14 with TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.
+### What Improved
 
-Step 2: Build the homepage hero targeted at freight-booking customers — headline like 'Reliable Air, Sea & Customs Clearance Services from Lahore' with a clear 'Get a Quote' CTA, not generic company branding language.
+The hero line and contact address are now real, not placeholder text.
 
-Step 3: Build a Services page with three clear sections: Air Freight, Sea Freight, Customs Clearance, each explaining what a customer gets, not company history.
+Someone could copy-paste Step 5 straight into the site.
 
-Step 4: Build an About page brief, since freight customers care more about capability than company story.
+### What Failed
 
-Step 5: Build a Contact/Quote Request page with the address and a form focused on shipment details (origin, destination, cargo type) rather than a generic message box.
+Step 3, the services list, is still generic because I hadn't given it my actual services yet, so it just guessed.
 
-Step 6: Add Framer Motion animations.
+This one only half-worked. It fixed what I gave it real information for and left the rest exactly as vague as before.
 
-Step 7: Make it responsive."
+### What I'd Try Next
 
-Notes
+Actually give it the real services, or tell it to flag when it's guessing instead of pretending it knows.
 
-What changed: told it exactly who the site is for — people booking freight, not investors or random visitors.
+---
 
-What improved: the CTA finally sounds like something a customer would click ("Get a Quote") instead of generic company talk, and the contact form asks for shipment details instead of just "leave a message." This one actually worked.
+# Version 3 — Layer: Defined Audience
 
-What failed: still no way to check if any step is actually done well before moving to the next one.
+## Prompt
 
-What I'd try next: add a way to review/check each step before moving on.
+> Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency is a freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for this specific audience: customers who need to book freight shipments — not investors, not job seekers, not general visitors.
 
-Version 4 — Layer: Review Instructions
+## Output
 
-Prompt
+| Step  | Build Step                                                                                                                                                                                                                |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | Set up Next.js 14 with TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.                                                                                                                                     |
+| **2** | Build the homepage hero targeted at freight-booking customers — headline like **"Reliable Air, Sea & Customs Clearance Services from Lahore"** with a clear **"Get a Quote"** CTA, not generic company branding language. |
+| **3** | Build a Services page with three clear sections: **Air Freight, Sea Freight, Customs Clearance**, each explaining what a customer gets, not company history.                                                              |
+| **4** | Build an About page brief, since freight customers care more about capability than company story.                                                                                                                         |
+| **5** | Build a Contact/Quote Request page with the address and a form focused on shipment details (**origin, destination, cargo type**) rather than a generic message box.                                                       |
+| **6** | Add Framer Motion animations.                                                                                                                                                                                             |
+| **7** | Make it responsive.                                                                                                                                                                                                       |
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check I should do before moving to the next step."
+## Notes
 
-Output
+No additional notes.
 
-Step 1: Set up Next.js 14, TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.
+## Observation
 
-Check: Run the dev server and confirm the palette/font are applied globally before continuing.
+### What Changed
 
-Step 2: Build homepage hero 'Reliable Air, Sea & Customs Clearance Services from Lahore,' with a 'Get a Quote' CTA.
+Told it exactly who the site is for — people booking freight, not investors or random visitors.
 
-Check: Read the hero out loud, does it clearly say what you offer and what to do next?
+### What Improved
 
-Step 3: Build Services page, Air Freight, Sea Freight, Customs Clearance sections.
+The CTA finally sounds like something a customer would click (**"Get a Quote"**) instead of generic company talk.
 
-Check: Could a customer explain what each service means after reading it, without asking you?
+The contact form asks for shipment details instead of just **"leave a message."**
 
-Step 4: Build About page, brief, capability-focused.
+This one actually worked.
 
-Check: Is it under 150 words?
+### What Failed
 
-Step 5: Build Contact/Quote page, form with origin, destination, cargo type, plus the address.
+Still no way to check if any step is actually done well before moving to the next one.
 
-Check: Does the form only ask for info you'd actually need to give a quote?
+### What I'd Try Next
 
-Step 6: Add Framer Motion animations.
+Add a way to review/check each step before moving on.
 
-Check: Do animations feel smooth, or do they slow down page load?
+---
 
-Step 7: Make responsive.
+# Version 4 — Layer: Review Instructions
 
-Check: Test on an actual phone screen, not just browser resize.
+## Prompt
 
-Notes
+> Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check I should do before moving to the next step.
 
-What changed: asked it to add a check after every step, before moving to the next one.
+## Output
 
-What improved: now I'd actually catch a bad step early instead of finding out at the end that something's wrong, which is basically what happened the first time around.
+| Step  | Build Step                                                                                                           | Review Check                                                                            |
+| ----- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **1** | Set up Next.js 14, TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.                                    | Run the dev server and confirm the palette/font are applied globally before continuing. |
+| **2** | Build homepage hero: **"Reliable Air, Sea & Customs Clearance Services from Lahore"**, with a **"Get a Quote"** CTA. | Read the hero out loud. Does it clearly say what you offer and what to do next?         |
+| **3** | Build Services page: **Air Freight, Sea Freight, Customs Clearance** sections.                                       | Could a customer explain what each service means after reading it, without asking you?  |
+| **4** | Build About page, brief and capability-focused.                                                                      | Is it under 150 words?                                                                  |
+| **5** | Build Contact/Quote page, form with origin, destination, cargo type, plus the address.                               | Does the form only ask for information you'd actually need to give a quote?             |
+| **6** | Add Framer Motion animations.                                                                                        | Do animations feel smooth, or do they slow down page load?                              |
+| **7** | Make the site responsive.                                                                                            | Test on an actual phone screen, not just browser resize.                                |
 
-What failed: the checks are still just vibes — "does it feel smooth," "read it out loud." Nothing stopping me from convincing myself something's fine when it's not. This helped, but not as much as I wanted.
+## Notes
 
-What I'd try next: turn these checks into actual numbers/rules instead of feelings.
+No additional notes.
 
-Version 5 — Layer: Quality Criteria
+## Observation
 
-Prompt
+### What Changed
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check with a measurable pass/fail bar, not a subjective feeling."
+Asked it to add a check after every step, before moving on to the next one.
 
-Output
+### What Improved
 
-Step 1: Set up Next.js 14, TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.
+Now I'd actually catch a bad step early instead of finding out at the end that something's wrong, which is basically what happened the first time around.
 
-Pass: npm run dev builds with zero errors and the palette/font are visible on a blank page.
+### What Failed
 
-Step 2: Build homepage hero, headline + 'Get a Quote' CTA.
+The checks are still just vibes:
 
-Pass: Headline is under 12 words and names at least one specific service (air/sea/customs).
+* "Does it feel smooth?"
+* "Read it out loud."
+* "Could a customer explain it?"
 
-Step 3: Build Services page, Air Freight, Sea Freight, Customs Clearance sections.
+Nothing is stopping me from convincing myself something's fine when it isn't.
 
-Pass: Each service section is 40-80 words and answers 'what do I get' not company history.
+This helped, but not as much as I wanted.
 
-Step 4: Build About page.
+### What I'd Try Next
 
-Pass: Under 150 words, no more than 2 paragraphs.
+Turn these checks into actual numbers/rules instead of feelings.
 
-Step 5: Build Contact/Quote page.
+---
 
-Pass: Form has exactly 4 required fields (origin, destination, cargo type, contact info).
+# Version 5 — Layer: Quality Criteria
 
-Step 6: Add Framer Motion animations.
+## Prompt
 
-Pass: Page load time stays under 2 seconds after animations are added.
+> Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check with a measurable pass/fail bar, not a subjective feeling.
 
-Step 7: Make responsive.
+## Output
 
-Pass: No horizontal scroll or overlapping elements at 375px width (iPhone SE size).
+| Step  | Build Step                                                                        | Pass / Fail Criteria                                                                                 |
+| ----- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **1** | Set up Next.js 14, TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font. | **Pass:** `npm run dev` builds with zero errors and the palette/font are visible on a blank page.    |
+| **2** | Build homepage hero, headline + **"Get a Quote"** CTA.                            | **Pass:** Headline is under 12 words and names at least one specific service (air/sea/customs).      |
+| **3** | Build Services page: Air Freight, Sea Freight, Customs Clearance sections.        | **Pass:** Each service section is 40–80 words and answers **"what do I get?"**, not company history. |
+| **4** | Build About page.                                                                 | **Pass:** Under 150 words, no more than 2 paragraphs.                                                |
+| **5** | Build Contact/Quote page.                                                         | **Pass:** Form has exactly 4 required fields: origin, destination, cargo type, contact information.  |
+| **6** | Add Framer Motion animations.                                                     | **Pass:** Page load time stays under 2 seconds after animations are added.                           |
+| **7** | Make the site responsive.                                                         | **Pass:** No horizontal scroll or overlapping elements at **375px width** (iPhone SE size).          |
 
-Notes
+## Notes
 
-What changed: swapped the "does it feel right" checks for actual pass/fail numbers.
+No additional notes.
 
-What improved: now anyone could check this, not just me. "Under 2 seconds," "375px width," "exactly 4 fields" — no guessing, no taste needed.
+## Observation
 
-What failed: honestly some of these numbers are just my best guess (why 4 fields, why 40-80 words) not based on any real customer testing.
+### What Changed
 
-What I'd try next: actually show this to a real customer or my dad/brother who run the business, and adjust the numbers based on what they say.
+Swapped the **"does it feel right?"** checks for actual pass/fail numbers.
 
-Final Reusable Prompt
+### What Improved
 
-"Give me a complete build prompt for [your website], structured as a numbered, sequential list of steps I can hand to an AI coding tool. For each step:
+Now anyone could check this, not just me.
 
-Include real business context, what the business does, who it serves, and any real details I provide.
+Examples:
 
-Write for [specific audience], not a general visitor.
+* Under 2 seconds
+* 375px width
+* Exactly 4 fields
+* Under 150 words
+* 40–80 words per service
 
-End with a measurable pass/fail check — a specific, testable bar, not a subjective feeling."
+There is no guessing or taste involved.
+
+### What Failed
+
+Honestly, some of these numbers are just my best guess:
+
+* Why 4 fields?
+* Why 40–80 words?
+* Why under 2 seconds?
+
+They aren't based on real customer testing.
+
+### What I'd Try Next
+
+Actually show this to a real customer or my dad/brother who run the business, and adjust the numbers based on what they say.
+
+---
+
+# Final Reusable Prompt
+
+> **Give me a complete build prompt for [your website], structured as a numbered, sequential list of steps I can hand to an AI coding tool.**
+>
+> For each step:
+>
+> 1. Include real business context, what the business does, who it serves, and any real details I provide.
+> 2. Write for **[specific audience]**, not a general visitor.
+> 3. End with a **measurable pass/fail check** — a specific, testable bar, not a subjective feeling.
+
+---
+
+# Prompt Ladder Progression
+
+| Version | Layer               | Main Improvement                                               |
+| ------- | ------------------- | -------------------------------------------------------------- |
+| **0**   | Baseline            | Everything dumped into one generic prompt.                     |
+| **1**   | Output Format       | Converted the request into ordered build steps.                |
+| **2**   | Real Context        | Added actual business and location information.                |
+| **3**   | Defined Audience    | Targeted customers who need to book freight shipments.         |
+| **4**   | Review Instructions | Added a review check after every build step.                   |
+| **5**   | Quality Criteria    | Replaced subjective checks with measurable pass/fail criteria. |
+
+---
+
+# Key Learning
+
+Better prompts did **not** come from simply making the prompt longer.
+
+Each version added **one specific constraint that removed ambiguity**:
+
+**Structure → Context → Audience → Review → Measurable Quality**
+
+The progression shows that effective prompting is less about adding more words and more about adding the **right constraints** at each stage.
