@@ -8,9 +8,21 @@ Prompt
 
 "Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity to build this."
 
-Info given
+Info Given
 
-Family freight forwarding business (Allied Shipping Agency), Next.js 14, TypeScript, Tailwind CSS, Framer Motion, navy/gold/beige palette, Inter font.
+Family freight forwarding business (Allied Shipping Agency)
+
+Next.js 14
+
+TypeScript
+
+Tailwind CSS
+
+Framer Motion
+
+Navy/gold/beige palette
+
+Inter font
 
 Output
 
@@ -18,13 +30,13 @@ Output
 
 Notes
 
-What changed: nothing yet, this is the starting point.
+What changed: Nothing yet, this is the starting point.
 
-What improved: nothing, it's the baseline.
+What improved: Nothing, this is the baseline.
 
-What failed: everything got dumped into one output, pages, sections, animations, colors, tone, all mixed together with zero order. No wonder this never actually got built. Whoever picks this up (even AI) doesn't know where to start.
+What failed: Everything got dumped into one output: pages, sections, animations, colors, tone, all mixed together with zero order. No wonder this never actually got built. Whoever picks this up (even AI) doesn't know where to start.
 
-What I'd try next: break this into small, ordered steps instead of throwing everything at it at once.
+What I'd try next: Break this into small, ordered steps instead of throwing everything at it at once.
 
 Version 1 — Layer: Output Format
 
@@ -54,17 +66,17 @@ Notes
 
 What changed: I told it to give me numbered steps instead of one big paragraph.
 
-What improved: now there's actually an order — Step 1, then Step 2, instead of everything at once. This is the exact thing that was missing before, and it's why the site never got built.
+What improved: Now there's actually an order — Step 1, then Step 2, instead of everything at once. This is the exact thing that was missing before, and it's why the site never got built.
 
-What failed: the steps are still vague. "Build the homepage" doesn't say what goes on it or what "done" even looks like.
+What failed: The steps are still vague. "Build the homepage" doesn't say what goes on it or what "done" even looks like.
 
-What I'd try next: give it real info about the actual business instead of placeholder text.
+What I'd try next: Give it real info about the actual business instead of placeholder text.
 
 Version 2 — Layer: Real Context
 
 Prompt
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include this real business context so the output is specific, not generic: Allied Shipping Agency is a freight forwarding company based in Lahore,"
+"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include this real business context so the output is specific, not generic: Allied Shipping Agency is a freight forwarding company based in Lahore."
 
 Output
 
@@ -86,13 +98,13 @@ Step 7: Make it responsive."
 
 Notes
 
-What changed: added the real business info I had — location and category.
+What changed: Added the real business info I had — location and category.
 
-What improved: the hero line and contact address are now real, not placeholder text. Someone could copy-paste Step 5 straight into the site.
+What improved: The hero line and contact address are now real, not placeholder text. Someone could copy-paste Step 5 straight into the site.
 
-What failed: Step 3 (the services list) is still generic because I hadn't given it my actual services yet, so it just guessed. This one only half-worked, it fixed what I gave it real info for, and left the rest exactly as vague as before.
+What failed: Step 3 (the services list) is still generic because I hadn't given it my actual services yet, so it just guessed. This one only half-worked: it fixed what I gave it real info for and left the rest exactly as vague as before.
 
-What I'd try next: actually give it the real services, or tell it to flag when it's guessing instead of pretending it knows.
+What I'd try next: Actually give it the real services, or tell it to flag when it's guessing instead of pretending it knows.
 
 Version 3 — Layer: Defined Audience
 
@@ -120,13 +132,13 @@ Step 7: Make it responsive."
 
 Notes
 
-What changed: told it exactly who the site is for — people booking freight, not investors or random visitors.
+What changed: Told it exactly who the site is for — people booking freight, not investors or random visitors.
 
-What improved: the CTA finally sounds like something a customer would click ("Get a Quote") instead of generic company talk, and the contact form asks for shipment details instead of just "leave a message." This one actually worked.
+What improved: The CTA finally sounds like something a customer would click ("Get a Quote") instead of generic company talk, and the contact form asks for shipment details instead of just "leave a message." This one actually worked.
 
-What failed: still no way to check if any step is actually done well before moving to the next one.
+What failed: Still no way to check if any step is actually done well before moving to the next one.
 
-What I'd try next: add a way to review/check each step before moving on.
+What I'd try next: Add a way to review/check each step before moving on.
 
 Version 4 — Layer: Review Instructions
 
@@ -142,7 +154,7 @@ Check: Run the dev server and confirm the palette/font are applied globally befo
 
 Step 2: Build homepage hero 'Reliable Air, Sea & Customs Clearance Services from Lahore,' with a 'Get a Quote' CTA.
 
-Check: Read the hero out loud, does it clearly say what you offer and what to do next?
+Check: Read the hero out loud. Does it clearly say what you offer and what to do next?
 
 Step 3: Build Services page, Air Freight, Sea Freight, Customs Clearance sections.
 
@@ -166,13 +178,13 @@ Check: Test on an actual phone screen, not just browser resize.
 
 Notes
 
-What changed: asked it to add a check after every step, before moving to the next one.
+What changed: Asked it to add a check after every step, before moving to the next one.
 
-What improved: now I'd actually catch a bad step early instead of finding out at the end that something's wrong, which is basically what happened the first time around.
+What improved: Now I'd actually catch a bad step early instead of finding out at the end that something's wrong, which is basically what happened the first time around.
 
-What failed: the checks are still just vibes — "does it feel smooth," "read it out loud." Nothing stopping me from convincing myself something's fine when it's not. This helped, but not as much as I wanted.
+What failed: The checks are still just vibes — "does it feel smooth," "read it out loud." Nothing stopping me from convincing myself something's fine when it's not. This helped, but not as much as I wanted.
 
-What I'd try next: turn these checks into actual numbers/rules instead of feelings.
+What I'd try next: Turn these checks into actual numbers/rules instead of feelings.
 
 Version 5 — Layer: Quality Criteria
 
@@ -192,7 +204,7 @@ Pass: Headline is under 12 words and names at least one specific service (air/se
 
 Step 3: Build Services page, Air Freight, Sea Freight, Customs Clearance sections.
 
-Pass: Each service section is 40-80 words and answers 'what do I get' not company history.
+Pass: Each service section is 40–80 words and answers "what do I get" rather than company history.
 
 Step 4: Build About page.
 
@@ -212,13 +224,13 @@ Pass: No horizontal scroll or overlapping elements at 375px width (iPhone SE siz
 
 Notes
 
-What changed: swapped the "does it feel right" checks for actual pass/fail numbers.
+What changed: Swapped the "does it feel right" checks for actual pass/fail numbers.
 
-What improved: now anyone could check this, not just me. "Under 2 seconds," "375px width," "exactly 4 fields" — no guessing, no taste needed.
+What improved: Now anyone could check this, not just me. "Under 2 seconds," "375px width," "exactly 4 fields" — no guessing, no taste needed.
 
-What failed: honestly some of these numbers are just my best guess (why 4 fields, why 40-80 words) not based on any real customer testing.
+What failed: Honestly, some of these numbers are just my best guess (why 4 fields, why 40–80 words) and are not based on any real customer testing.
 
-What I'd try next: actually show this to a real customer or my dad/brother who run the business, and adjust the numbers based on what they say.
+What I'd try next: Actually show this to a real customer or my dad/brother who run the business, and adjust the numbers based on what they say.
 
 Final Reusable Prompt
 
@@ -228,4 +240,4 @@ Include real business context, what the business does, who it serves, and any re
 
 Write for [specific audience], not a general visitor.
 
-End with a measurable pass/fail check — a specific, testable bar, not a subjective feeling."
+End with a measurable pass/fail check — a specific, testable bar, not a
