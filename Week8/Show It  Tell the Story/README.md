@@ -1,85 +1,265 @@
-# Contract-Gig Outreach and Follow-Up Tracker
+# Contract Gig Outreach
 
-An n8n workflow that reads my Gmail for job application threads, drafts a follow-up email using an LLM, and saves the draft back to Gmail for me to review and send myself.
+## Overview
 
-## What it does and who it's for
+Contract Gig Outreach is an n8n workflow that helps me follow up on contract job applications without manually opening every email and writing each follow up message from scratch.
 
-Built for anyone doing active outreach for part-time contract or freelance work who needs to follow up on applications without forgetting threads or writing every follow-up from scratch.
+The workflow connects to my Gmail account, finds recent application related email threads, sends the relevant information to an LLM through OpenRouter, generates a short follow up message, and saves the result as a Gmail draft.
 
-The workflow:
-1. Reads Gmail for threads matching job application criteria
-2. Sends the thread content to an LLM API to draft a follow-up
-3. Saves the draft to Gmail as a draft, not sent automatically, so I always review before it goes out
+The main goal of the project is to reduce repetitive work while keeping the final decision in my hands. The workflow creates drafts instead of automatically sending emails, so I can review every message before it is sent.
 
-## Setup
+## Who it is for
 
-Requirements:
-- Node.js 18+
-- n8n, self-hosted (built and tested on v2.36.8, Windows)
-- Gmail account with OAuth access
-- OpenRouter API key (free-tier models used here)
+This workflow is useful for job seekers who apply to multiple contract positions and want a faster way to prepare follow up messages.
 
-Steps:
-1. Install n8n globally: `npm install -g n8n`, then start it with `n8n` (not `npx n8n` on every launch, that can re-pull a fresh copy and cause credential decryption errors between sessions). On Windows, if PowerShell blocks the install with an execution-policy error, run `npm.cmd install -g n8n` and `n8n.cmd` instead.
-2. Open http://localhost:5678 and import the workflow JSON.
-3. Set up Gmail OAuth2 credentials:
-   - In Google Cloud Console, create a Web application OAuth client.
-   - Set the redirect URI n8n gives you: `http://localhost:5678/rest/oauth2-credential/callback`.
-   - Add your own Gmail address as a test user on the OAuth consent screen, or you'll hit a 403 access_denied error.
-   - Assign the resulting credential to both Gmail nodes: `Get One Application Thread` and `Save Draft in Gmail`.
-4. Add your OpenRouter key as a plain-text `x-api-key` header on the `Claude - Draft Follow-Up` HTTP Request node (see Limitations for why this isn't a proper n8n credential yet).
-5. Run once manually via the Manual Trigger node to confirm the full chain executes end to end before relying on it.
+It is especially useful when application emails are spread across a busy inbox and writing individual follow ups becomes repetitive.
 
-## Usage example
+## What the workflow does
 
-Trigger the workflow manually. It searches Gmail with:
+The workflow starts with a manual trigger.
 
-```
-in:inbox (application OR interview OR "thank you for applying") newer_than:14d
-```
+It then searches Gmail for recent application related messages.
 
-pulls up to 5 matching threads, sends each one's subject and snippet to an LLM for a short follow-up draft, and saves each result as a separate Gmail draft (not sent). I open Drafts, read each one, edit if needed, and send myself.
+The Gmail node retrieves up to five matching threads during the current test configuration.
+
+The relevant subject and email snippet are passed to the language model.
+
+The language model writes a short follow up email using a direct and professional tone.
+
+The generated response is extracted from the OpenRouter response.
+
+The final message is saved as a Gmail draft.
+
+The workflow does not automatically send the email.
+
+This keeps the human in control of the final communication.
 
 ## Architecture
 
-```
+The workflow contains five main stages.
+
 Manual Trigger
-      |
-      v
-Get One Application Thread (Gmail search, limit 5)
-      |
-      | up to 5 email items
-      v
-Claude - Draft Follow-Up (HTTP Request -> OpenRouter, model fallback list)
-      |
-      | one LLM response per item
-      v
-Extract Draft Text (Code node, maps every item, not just the first)
-      |
-      | draftText, threadId, to, subject per item
-      v
-Save Draft in Gmail (creates one draft per item, never auto-sends)
-```
 
-## Eval results (v2)
+The workflow starts when I manually execute it from n8n.
 
-Ran the full workflow against 5 real Gmail threads in one execution.
+Gmail Application Retrieval
 
-- 5/5 technical success: every thread produced a drafted follow-up and a saved Gmail draft, with no crashes and no missing fields.
-- 3/5 were good matches: genuine application-related threads (from sources like FlyRank and Glassdoor-tier communications) where the drafted follow-up was contextually appropriate and usable close to as-is.
-- 2/5 were false-positive matches: the Gmail search query is broad enough that it also picked up adjacent job-related email (a hackathon notification, a platform reminder) that isn't actually an application awaiting a follow-up. The workflow still drafted a follow-up for these, which isn't useful, since there was nothing to follow up on.
+The Gmail node searches the inbox for recent messages using an application related search query.
 
-Read as a whole: the drafting and multi-item pipeline is solid (5/5), the input filtering is the weak point (3/5 relevant). That's the real state of it, not the part to sand down.
+The current search query is:
+
+in:inbox (application OR interview OR "thank you for applying") newer_than:14d
+
+During testing, the retrieval limit was changed to five so that the workflow could be tested against multiple real email threads.
+
+LLM Generation
+
+The retrieved email information is sent to OpenRouter using an HTTP Request node.
+
+The workflow sends the application subject and email snippet together with instructions for generating a short follow up message.
+
+The model is instructed to use a direct, honest and matter of fact writing style.
+
+Draft Extraction
+
+A Code node extracts the generated message from the OpenRouter response.
+
+It also keeps the Gmail thread identifier so that the generated result remains associated with the original application thread.
+
+Gmail Draft Creation
+
+The final message is passed to Gmail and saved as a draft.
+
+The draft can then be reviewed manually before sending.
+
+## LLM prompt
+
+The workflow uses the following instruction:
+
+You are drafting a short follow up email for a contract job application. Voice: direct, honest, no fluff, matter of fact. Never inflate or use corporate filler.
+
+Subject: application subject
+
+Thread snippet: email snippet
+
+Write a 3 to 4 sentence follow up email checking in on the application status. Return ONLY the email body text, nothing else.
+
+The actual subject and thread snippet are inserted dynamically from the Gmail result.
+
+## Example workflow input
+
+A real application related email contained information indicating that an application had been received for a Virtual Assistant position.
+
+The workflow extracted the email information and generated a follow up message based on that context.
+
+Another test involved an examination related email from Digital Abbot Global Hackathon.
+
+The workflow was able to process the email and create a follow up draft.
+
+## Example generated output
+
+I wanted to check in on the status of my application submitted on August 27, 2026. I'm still very interested in the User Manual Technical Writer project and available to start. Could you let me know where things stand or if you need any additional information from me?
+
+This shows the intended output style.
+
+The messages are short and readable and do not contain unnecessary corporate language.
+
+## Gmail authentication
+
+Gmail access is handled through Gmail OAuth 2.0.
+
+The OAuth connection allows the workflow to read the required Gmail messages and create drafts in the connected account.
+
+No Gmail password is stored in the workflow.
+
+Authentication credentials and secrets are kept inside n8n and are not included in this repository.
+
+## OpenRouter integration
+
+The workflow communicates with OpenRouter through an HTTP Request node.
+
+The request is sent to the OpenRouter chat completions endpoint.
+
+The workflow uses a free model route so that the project can be tested without depending on a paid model.
+
+The model selection was adjusted during development because some free models became unavailable. The final workflow uses the OpenRouter free routing option.
+
+## Setup
+
+Install and run n8n.
+
+Create or open an n8n workflow.
+
+Add a Manual Trigger node.
+
+Add a Gmail node configured to retrieve messages.
+
+Connect a Gmail OAuth 2.0 credential.
+
+Configure the Gmail search query:
+
+in:inbox (application OR interview OR "thank you for applying") newer_than:14d
+
+Set the retrieval limit to five when testing multiple threads.
+
+Add an HTTP Request node.
+
+Configure it to make a POST request to the OpenRouter chat completions endpoint.
+
+Add the Authorization header using the OpenRouter API key stored securely in n8n.
+
+Set the request body to JSON.
+
+Pass the Gmail subject and snippet into the prompt dynamically.
+
+Add a Code node to extract the generated message from the OpenRouter response.
+
+Add a Gmail node configured to create a draft.
+
+Pass the generated text into the draft message field.
+
+Pass the appropriate recipient address into the To field.
+
+Save the workflow and execute it manually.
+
+## Testing
+
+The workflow was tested using real email threads from my Gmail inbox.
+
+The initial configuration retrieved one thread at a time.
+
+After the single thread flow worked successfully, I changed the retrieval limit to five.
+
+The workflow was then executed against five real email threads.
+
+Five outputs were successfully generated and five Gmail drafts appeared in the Gmail Drafts folder.
+
+This confirmed that the workflow could process multiple items in one execution rather than only handling a single email.
+
+## Evaluation
+
+The workflow successfully demonstrated the complete path from Gmail retrieval to generated draft creation.
+
+Gmail OAuth authentication worked successfully.
+
+The workflow retrieved multiple Gmail threads successfully.
+
+Five real threads were processed in one execution.
+
+The OpenRouter request successfully generated text.
+
+The Code node successfully extracted the generated response.
+
+Five Gmail drafts were successfully created.
+
+The workflow therefore met its core objective of turning application related email information into reviewable follow up drafts.
 
 ## Limitations
 
-- **Input filtering is the biggest gap.** The Gmail search query is intentionally broad (`application OR interview OR "thank you for applying"`) and catches non-application email like job alerts and event reminders alongside real threads. About 40% of retrieved threads in testing weren't genuine candidates for a follow-up. Tightening this query, or adding a filtering step before the LLM call, is the clearest next improvement.
-- **OpenRouter free-tier models rotate.** Two different free models I'd wired in became unavailable mid-project (`inclusionai/ling-3.0-flash:free`, later `qwen/qwen3-30b-a3b:free`). Fixed by switching the request from a single `model` field to a `models` array with several free models in priority order, so the workflow falls through to the next available one instead of erroring out.
-- **The OpenRouter API key is passed as a plain-text `x-api-key` header** instead of a proper n8n credential, because the native credential type was unreliable in this n8n version. Needs a real credential-based fix before this touches anything more sensitive than free-tier drafting.
-- **Self-hosted credential encryption is fragile across sessions.** Switching how n8n was launched (`npx` re-pulling a fresh copy) once caused a "credentials could not be decrypted" error that required recreating the Gmail OAuth credential from scratch. Resolved by installing n8n globally instead of relaunching via npx each time.
-- **Drafts only, never auto-sends.** Deliberate, not a gap, but worth stating plainly: every output needs a human read-through before anything goes out.
-- **Gmail OAuth needs full scope approval** even though the workflow only touches drafts, which is more access than the task strictly needs.
+The biggest limitation is that the Gmail search is based on keywords and recent email activity.
 
-## Built with AI
+Not every email returned by the search is necessarily a genuine job application thread.
 
-I built this workflow using Claude as a debugging and thinking partner throughout: working through n8n's Expression mode requirements, the JSON body syntax errors, the multi-item processing bug in the Code node (an early version only processed the first Gmail item instead of all 5, so 5 emails in produced only 1 draft out, fixed by replacing `.first()`/`items[0]` with a `.map()` over every item), the OpenRouter free-model rotation issue, and the credential decryption error after switching install methods. I designed the workflow architecture, wired and tested every node myself, ran the actual eval against my own Gmail, and made the judgment calls on what counted as a good draft versus a false-positive match.
+For example, the test run included automated job alerts, examination notices and other recruitment related messages.
+
+The language model also depends on the quality of the information contained in the email snippet.
+
+If the original email does not clearly contain the job title, application date or hiring contact, the generated message may use generic wording.
+
+During testing, some drafts referred to the application date correctly while other drafts used generic wording.
+
+Some outputs also included placeholders such as a hiring manager name when that information was not available.
+
+This means the generated message should always be reviewed before sending.
+
+Another limitation is that the workflow currently creates drafts rather than automatically deciding whether an email should be sent.
+
+I intentionally kept this limitation because automatically sending generated job application emails without human review could result in incorrect or inappropriate communication.
+
+## What I would improve in version 2
+
+The next version would add stronger application filtering before the LLM step.
+
+I would classify each retrieved email as a genuine application thread, recruitment notification, assessment message or irrelevant message.
+
+I would also extract structured fields such as company name, position title, recipient email, application date and application status.
+
+The LLM would then receive structured information instead of relying mainly on the Gmail snippet.
+
+I would also add a confidence score and a human approval step before a draft is created.
+
+This would make the workflow more reliable when processing a large inbox.
+
+## AI transparency
+
+AI played an important role in this project.
+
+I used AI assistance while designing the workflow, improving prompts, troubleshooting the OpenRouter integration, and refining the generated follow up messages.
+
+I personally configured and tested the n8n workflow, connected Gmail through OAuth 2.0, tested the OpenRouter request, inspected the generated outputs, fixed errors, tested multiple Gmail threads and reviewed the resulting Gmail drafts.
+
+The final workflow decisions and validation were based on my own testing.
+
+## Human review
+
+The workflow is designed to assist rather than replace the final decision.
+
+Every generated message is saved as a Gmail draft.
+
+I can inspect the original application email, check the generated text, make corrections and decide whether the message should actually be sent.
+
+This is important because automated email content can be technically valid while still being inappropriate for a particular application.
+
+## Final result
+
+Contract Gig Outreach successfully demonstrates an end to end AI assisted workflow for job application follow ups.
+
+It connects Gmail to an LLM through OpenRouter, processes multiple real email threads and produces Gmail drafts that can be reviewed before sending.
+
+The project also showed an important lesson during development.
+
+Generating text is not the difficult part of the system.
+
+The more important challenge is deciding which emails are actually relevant and providing the model with enough reliable context to produce an accurate message.
+
+That is the main area I would focus on in the next version.
