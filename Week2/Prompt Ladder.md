@@ -240,4 +240,4 @@ Include real business context, what the business does, who it serves, and any re
 
 Write for [specific audience], not a general visitor.
 
-End with a measurable pass/fail check — a specific, testable bar, not a
+End with a measurable pass/fail check — a specific, testable bar, not a subjective 
