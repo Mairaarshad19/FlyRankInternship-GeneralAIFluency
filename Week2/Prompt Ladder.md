@@ -6,7 +6,7 @@ Baseline (Version 0)
 
 Prompt
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity to build this."
+Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity to build this.
 
 Info Given
 
@@ -26,15 +26,15 @@ Inter font
 
 Output
 
-"Build a modern, professional website for Allied Shipping Agency, a freight forwarding company. Use Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Include a navy, gold, and warm beige color palette with the Inter font. The site should have a homepage, services page, about page, and contact page. Make it responsive, modern, and visually appealing with smooth animations. Include a hero section, services showcase, testimonials, and a contact form. Make sure it reflects trust and professionalism for a logistics company."
+Build a modern, professional website for Allied Shipping Agency, a freight forwarding company. Use Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Include a navy, gold, and warm beige color palette with the Inter font. The site should have a homepage, services page, about page, and contact page. Make it responsive, modern, and visually appealing with smooth animations. Include a hero section, services showcase, testimonials, and a contact form. Make sure it reflects trust and professionalism for a logistics company.
 
 Notes
 
 What changed: Nothing yet, this is the starting point.
 
-What improved: Nothing, this is the baseline.
+What improved: Nothing, it's the baseline.
 
-What failed: Everything got dumped into one output: pages, sections, animations, colors, tone, all mixed together with zero order. No wonder this never actually got built. Whoever picks this up (even AI) doesn't know where to start.
+What failed: Everything got dumped into one output, pages, sections, animations, colors, tone, all mixed together with zero order. No wonder this never actually got built. Whoever picks this up (even AI) doesn't know where to start.
 
 What I'd try next: Break this into small, ordered steps instead of throwing everything at it at once.
 
@@ -42,11 +42,11 @@ Version 1 — Layer: Output Format
 
 Prompt
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps (e.g., Step 1: set up project structure, Step 2: build homepage hero, Step 3: build services section, etc.) rather than one single paragraph."
+Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps (e.g., Step 1: set up project structure, Step 2: build homepage hero, Step 3: build services section, etc.) rather than one single paragraph.
 
 Output
 
-"Build the Allied Shipping Agency website in these steps:
+Build the Allied Shipping Agency website in these steps:
 
 Step 1: Set up a Next.js 14 project with TypeScript and Tailwind CSS. Configure the navy/gold/beige color palette and Inter font in the Tailwind config.
 
@@ -60,7 +60,7 @@ Step 5: Build the Contact page with a contact form.
 
 Step 6: Add Framer Motion animations to section transitions and the hero.
 
-Step 7: Make the entire site responsive across mobile, tablet, and desktop."
+Step 7: Make the entire site responsive across mobile, tablet, and desktop.
 
 Notes
 
@@ -76,15 +76,15 @@ Version 2 — Layer: Real Context
 
 Prompt
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include this real business context so the output is specific, not generic: Allied Shipping Agency is a freight forwarding company based in Lahore."
+Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include this real business context so the output is specific, not generic: Allied Shipping Agency is a freight forwarding company based in Lahore,
 
 Output
 
-"Build the Allied Shipping Agency website in these steps:
+Build the Allied Shipping Agency website in these steps:
 
 Step 1: Set up Next.js 14 with TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.
 
-Step 2: Build the homepage hero 'Allied Shipping Agency, your trusted freight forwarding partner in Lahore, Pakistan.'
+Step 2: Build the homepage hero "Allied Shipping Agency, your trusted freight forwarding partner in Lahore, Pakistan."
 
 Step 3: Build a Services page listing freight forwarding services offered.
 
@@ -94,7 +94,7 @@ Step 5: Build a Contact page with the company address and a contact form.
 
 Step 6: Add Framer Motion animations.
 
-Step 7: Make it responsive."
+Step 7: Make it responsive.
 
 Notes
 
@@ -102,7 +102,7 @@ What changed: Added the real business info I had — location and category.
 
 What improved: The hero line and contact address are now real, not placeholder text. Someone could copy-paste Step 5 straight into the site.
 
-What failed: Step 3 (the services list) is still generic because I hadn't given it my actual services yet, so it just guessed. This one only half-worked: it fixed what I gave it real info for and left the rest exactly as vague as before.
+What failed: Step 3 (the services list) is still generic because I hadn't given it my actual services yet, so it just guessed. This one only half-worked, it fixed what I gave it real info for, and left the rest exactly as vague as before.
 
 What I'd try next: Actually give it the real services, or tell it to flag when it's guessing instead of pretending it knows.
 
@@ -110,15 +110,15 @@ Version 3 — Layer: Defined Audience
 
 Prompt
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency is a freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for this specific audience: customers who need to book freight shipments — not investors, not job seekers, not general visitors."
+Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency is a freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for this specific audience: customers who need to book freight shipments — not investors, not job seekers, not general visitors.
 
 Output
 
-"Build the Allied Shipping Agency website in these steps:
+Build the Allied Shipping Agency website in these steps:
 
 Step 1: Set up Next.js 14 with TypeScript, Tailwind CSS, navy/gold/beige palette, Inter font.
 
-Step 2: Build the homepage hero targeted at freight-booking customers — headline like 'Reliable Air, Sea & Customs Clearance Services from Lahore' with a clear 'Get a Quote' CTA, not generic company branding language.
+Step 2: Build the homepage hero targeted at freight-booking customers — headline like "Reliable Air, Sea & Customs Clearance Services from Lahore" with a clear "Get a Quote" CTA, not generic company branding language.
 
 Step 3: Build a Services page with three clear sections: Air Freight, Sea Freight, Customs Clearance, each explaining what a customer gets, not company history.
 
@@ -128,7 +128,7 @@ Step 5: Build a Contact/Quote Request page with the address and a form focused o
 
 Step 6: Add Framer Motion animations.
 
-Step 7: Make it responsive."
+Step 7: Make it responsive.
 
 Notes
 
@@ -144,7 +144,7 @@ Version 4 — Layer: Review Instructions
 
 Prompt
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check I should do before moving to the next step."
+Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check I should do before moving to the next step.
 
 Output
 
@@ -152,9 +152,9 @@ Step 1: Set up Next.js 14, TypeScript, Tailwind CSS, navy/gold/beige palette, In
 
 Check: Run the dev server and confirm the palette/font are applied globally before continuing.
 
-Step 2: Build homepage hero 'Reliable Air, Sea & Customs Clearance Services from Lahore,' with a 'Get a Quote' CTA.
+Step 2: Build homepage hero "Reliable Air, Sea & Customs Clearance Services from Lahore," with a "Get a Quote" CTA.
 
-Check: Read the hero out loud. Does it clearly say what you offer and what to do next?
+Check: Read the hero out loud, does it clearly say what you offer and what to do next?
 
 Step 3: Build Services page, Air Freight, Sea Freight, Customs Clearance sections.
 
@@ -178,7 +178,7 @@ Check: Test on an actual phone screen, not just browser resize.
 
 Notes
 
-What changed: Asked it to add a check after every step, before moving to the next one.
+What changed: Asked it to add a check after every step, before moving on to the next one.
 
 What improved: Now I'd actually catch a bad step early instead of finding out at the end that something's wrong, which is basically what happened the first time around.
 
@@ -190,7 +190,7 @@ Version 5 — Layer: Quality Criteria
 
 Prompt
 
-"Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check with a measurable pass/fail bar, not a subjective feeling."
+Using my given info, give me a complete prompt to build this website that I can paste into any AI tool like Antigravity. Structure the output as a numbered, sequential list of build steps. Include real business context: Allied Shipping Agency, freight forwarder in Lahore, Pakistan, offering air freight, sea freight, and customs clearance. Write for freight-booking customers. After each step, add a one-line review check with a measurable pass/fail bar, not a subjective feeling.
 
 Output
 
@@ -198,13 +198,13 @@ Step 1: Set up Next.js 14, TypeScript, Tailwind CSS, navy/gold/beige palette, In
 
 Pass: npm run dev builds with zero errors and the palette/font are visible on a blank page.
 
-Step 2: Build homepage hero, headline + 'Get a Quote' CTA.
+Step 2: Build homepage hero, headline + "Get a Quote" CTA.
 
 Pass: Headline is under 12 words and names at least one specific service (air/sea/customs).
 
 Step 3: Build Services page, Air Freight, Sea Freight, Customs Clearance sections.
 
-Pass: Each service section is 40–80 words and answers "what do I get" rather than company history.
+Pass: Each service section is 40-80 words and answers "what do I get" not company history.
 
 Step 4: Build About page.
 
@@ -228,16 +228,16 @@ What changed: Swapped the "does it feel right" checks for actual pass/fail numbe
 
 What improved: Now anyone could check this, not just me. "Under 2 seconds," "375px width," "exactly 4 fields" — no guessing, no taste needed.
 
-What failed: Honestly, some of these numbers are just my best guess (why 4 fields, why 40–80 words) and are not based on any real customer testing.
+What failed: Honestly some of these numbers are just my best guess (why 4 fields, why 40-80 words) not based on any real customer testing.
 
 What I'd try next: Actually show this to a real customer or my dad/brother who run the business, and adjust the numbers based on what they say.
 
 Final Reusable Prompt
 
-"Give me a complete build prompt for [your website], structured as a numbered, sequential list of steps I can hand to an AI coding tool. For each step:
+Give me a complete build prompt for [your website], structured as a numbered, sequential list of steps I can hand to an AI coding tool. For each step:
 
 Include real business context, what the business does, who it serves, and any real details I provide.
 
 Write for [specific audience], not a general visitor.
 
-End with a measurable pass/fail check — a specific, testable bar, not a subjective 
+End with a measurable pass/fail check — a specific, testable bar, not a subjective feeling.
